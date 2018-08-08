@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-4 col-xs-4">
+      <h1><%= @restaurant.name %></h1>
+
+      <p><strong>Address: </strong><%= @restaurant.address %></p>
+      <p><strong>Phone Number: </strong><%= @restaurant.phone_number %></p>
+      <p><strong>Category: </strong><%= @restaurant.category.capitalize %></p>
+
+      <h3>Reviews:</h3>
+      <div class="reviews">
+        <% @restaurant.reviews.each do |review| %>
+          <p><strong>Review: </strong><%= review.content %></p>
+          <p><strong>Rating: </strong><%= review.rating %></p>
+        <% end %>
+      </div>
+
+      <h3>Add a Review:</h3>
+      <%= render 'shared/form_review', review: [@restaurant, @review] %>
+    </div>
+  </div>
+</div>
+
